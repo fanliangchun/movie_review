@@ -18,16 +18,29 @@
 	</div>
 </div>
 
-<div>
-  <h3 class="reivews_title">
-    <%= @movie.reviews.count %> 条评论</h3>
-	  <%= render 'reviews/review' %>
+<div class="row">
+	<div class="col-md-8">
+	  <h3 class="reivews_title">
+	    <%= @movie.reviews.count %> 条评论</h3>
+		  <%= render 'reviews/review' %>
+	</div>
+	<div class="col-md-4">
+		<%= render 'favorite' %>
+	</div>
 </div>
 
-<div>
-	<%= link_to("Home", movies_path) %>
-	<% if current_user && current_user == @movie.user %>
-	<%= link_to("Edit", edit_movie_path(@movie)) %>
-	<%= link_to("Destroy", movie_path(@movie), method: :delete, data: {confirm: "Are you sure?"}) %>
-	<% end %>
-</div>
+
+<%= content_for :handwrite_javascript do %>
+<script>
+	$(function(){
+    var $pins = $('#pins');
+    $pins.imagesLoaded(function(){
+      // $box.fadeIn();
+      $pins.masonry({
+        itemSelector : '.box',
+        isFitWidth: true,
+      });
+    });
+  });	
+</script>
+<% end %>

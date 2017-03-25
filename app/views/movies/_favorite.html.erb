@@ -1,0 +1,11 @@
+<h2 class="text-center">特别推荐</h2>
+<div id="pins">
+	<% Movie.limit(4).sort_by{|movie| -movie.members.count}.each do |movie| %>
+	<div class="box">
+			<%= link_to movie_path(movie) do %>
+				<%= image_tag movie.avatar.url(:medium) %>
+			<h4 class="text-center"><%= movie.title%></h4>
+			<% end %>
+	</div>
+	<% end %>
+</div>

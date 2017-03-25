@@ -3,7 +3,7 @@
 		<div class="box">
 			<%= link_to movie_path(movie) do %>
 				<%= image_tag movie.avatar.url(:medium) %>
-			<h4><%= movie.title%></h4>
+			<h4 class="text-center"><%= movie.title%></h4>
 			<% end %>
 		</div>
 	<% end %>
