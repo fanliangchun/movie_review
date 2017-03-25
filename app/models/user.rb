@@ -13,6 +13,7 @@ class User < ApplicationRecord
   	favorited_movies.include?(movie)
   end
 
+
   def favorite!(movie)
   	favorited_movies << movie
   end

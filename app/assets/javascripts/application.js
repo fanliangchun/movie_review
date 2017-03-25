@@ -16,5 +16,4 @@
 //= require bootstrap/dropdown
 //= require masonry/jquery.masonry
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .

@@ -17,7 +17,6 @@
             <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
                 <li class="active"><%= link_to("Add a Movie", new_movie_path) %></li>
-                <li><%= link_to(content_tag(:i, "My Favorites", class: "fa fa-star"), account_favorites_path)  %></li>
               <% end %>
                <% if !current_user %>
                   <li><%= link_to(content_tag(:i, "注册", class: "fa fa-user-plus"), new_user_registration_path) %> </li>
@@ -30,6 +29,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
+                      <li><%= link_to(content_tag(:i, "我收藏的影片", class: "fa fa-star"), account_favorites_path)  %></li>
+                      <li><%= link_to(content_tag(:i, "我的影评", class: "fa fa-comments"), account_reviews_path) %></li>
+                      <li class="divider"></li>
                       <li> <%= link_to(content_tag(:i, "登出", class: "fa fa-sign-out"), destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>
