@@ -10,17 +10,24 @@
 </div>
 	<div>
 	<% if current_user && current_user.has_favorited?(@movie) %>
-	<%= link_to(content_tag(:i, "取消收藏", class: "fa fa-heart"), unfavorite_movie_path(@movie), method: :post, class: "btn btn-sm btn-success") %>
+		<%= link_to(content_tag(:i,"发表影评", class: "fa fa-comments"), new_movie_review_path(@movie), class: "btn btn-danger") %>
+		<%= link_to(content_tag(:i, "取消收藏", class: "fa fa-heart"), unfavorite_movie_path(@movie), method: :post, class: "btn btn-success") %>
 	<% else %>
-		<%= link_to(content_tag(:i, "立即收藏", class: "fa fa-heart-o"), favorite_movie_path(@movie), method: :post, class: "btn btn-sm btn-danger") %>
+		<%= link_to(content_tag(:i, "立即收藏", class: "fa fa-heart-o"), favorite_movie_path(@movie), method: :post, class: "btn btn-danger") %>
 	<% end %>
 	</div>
-
 </div>
+
 <div>
-<%= link_to("Home", movies_path) %>
-<% if current_user && current_user == @movie.user %>
-<%= link_to("Edit", edit_movie_path(@movie)) %>
-<%= link_to("Destroy", movie_path(@movie), method: :delete, data: {confirm: "Are you sure?"}) %>
-<% end %>
+  <h3 class="reivews_title">
+    <%= @movie.reviews.count %> 条评论</h3>
+	  <%= render 'reviews/review' %>
+</div>
+
+<div>
+	<%= link_to("Home", movies_path) %>
+	<% if current_user && current_user == @movie.user %>
+	<%= link_to("Edit", edit_movie_path(@movie)) %>
+	<%= link_to("Destroy", movie_path(@movie), method: :delete, data: {confirm: "Are you sure?"}) %>
+	<% end %>
 </div>
