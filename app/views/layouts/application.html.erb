@@ -9,12 +9,16 @@
 
   <body>
   	<div class="container-fluid">
-  		<%= render 'common/navbar' %>
+      <div class="row">
+  		  <%= render 'common/navbar' %>
+      </div>
   		<%= render 'common/flashes' %>
   		<%= yield %>
   	</div>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <%= yield :handwrite_javascript  %>
   </body>
+    <div class="row">
   	<%= render 'common/footer' %>
+    </div>
 </html>

@@ -60,6 +60,18 @@ class MoviesController < ApplicationController
 		redirect_to :back
 	end
 
+	def upvote
+    @movie = Movie.find(params[:id])
+    @movie.upvote_by current_user
+    redirect_to :back
+	end
+
+	def downvote
+    @movie = Movie.find(params[:id])
+    @movie.downvote_by current_user
+    redirect_to :back
+	end
+
 	private
 
 	def find_movie

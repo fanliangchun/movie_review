@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   	member do
   		post :favorite
   		post :unfavorite
+      put "like", to: "movies#upvote"
+      put "dislike", to: "movies#downvote"
   	end
     resources :reviews
   end

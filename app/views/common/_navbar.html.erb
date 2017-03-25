@@ -8,7 +8,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><i class="fa fa-film fa-lg fa-fw" aria-hidden="true"></i>Chatting-Movies </a>
+            <a class="navbar-brand" href="/"><i class="fa fa-film fa-lg fa-fw" aria-hidden="true"></i> 热门影评网 </a>
 
         </div>
 
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
-                <li class="active"><%= link_to("Add a Movie", new_movie_path) %></li>
+                <li class="active"><%= link_to("新增电影", new_movie_path) %></li>
               <% end %>
                <% if !current_user %>
                   <li><%= link_to(content_tag(:i, "注册", class: "fa fa-user-plus"), new_user_registration_path) %> </li>

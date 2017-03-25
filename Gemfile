@@ -40,6 +40,7 @@ gem 'paperclip', '~> 5.1'
 gem 'masonry-rails'
 gem 'ratyrate', '~> 1.2.2.alpha'
 gem 'social-share-button'
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
