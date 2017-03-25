@@ -1,34 +1,42 @@
-<div class="row">
-	<div class="col-md-4">
-	<%= image_tag @movie.avatar.url(:medium) %>
-	</div>
-	<div class="col-md-8">
-	<h1><%= @movie.title %></h1>
-	<h4><strong>Derector: </strong><%= @movie.director %></h4>
-	<p><strong>Running Time: </strong><%= @movie.movie_length %> </p>
-	<p><%= simple_format(@movie.description) %></p>
-</div>
-	<div>
-	<% if current_user && current_user.has_favorited?(@movie) %>
-		<%= link_to(content_tag(:i,"发表影评", class: "fa fa-comments"), new_movie_review_path(@movie), class: "btn btn-danger") %>
-		<%= link_to(content_tag(:i, "取消收藏", class: "fa fa-heart"), unfavorite_movie_path(@movie), method: :post, class: "btn btn-success") %>
-	<% else %>
-		<%= link_to(content_tag(:i, "立即收藏", class: "fa fa-heart-o"), favorite_movie_path(@movie), method: :post, class: "btn btn-danger") %>
-	<% end %>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-8">
-	  <h3 class="reivews_title">
-	    <%= @movie.reviews.count %> 条评论</h3>
-		  <%= render 'reviews/review' %>
-	</div>
-	<div class="col-md-4">
-		<%= render 'favorite' %>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-4">
+			<%= image_tag @movie.avatar.url(:medium) %>
+			</div>
+			<div class="col-md-8">
+			<h1><%= @movie.title %></h1>
+			<h4><strong>Derector: </strong><%= @movie.director %></h4>
+			<p><strong>Running Time: </strong><%= @movie.movie_length %> </p>
+			<p><%= simple_format(@movie.description) %></p>
+		</div>
+			<div>
+			<% if current_user && current_user.has_favorited?(@movie) %>
+				<%= link_to(content_tag(:i, "取消收藏", class: "fa fa-heart"), unfavorite_movie_path(@movie), method: :post, class: "btn btn-success") %>
+			<% else %>
+				<%= link_to(content_tag(:i, "立即收藏", class: "fa fa-heart-o"), favorite_movie_path(@movie), method: :post, class: "btn btn-danger") %>
+			<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 
+
+<div class="col-md-8">
+  <h3 class="reivews_title">
+    <%= @movie.reviews.count %> 条评论</h3><hr>
+    <div id="reviews">
+	  	<%= render 'reviews/review' %>
+	  <hr>
+	  <% if current_user && current_user.has_favorited?(@movie) %>
+			<%= render "reviews/form" %>
+		<% end %>
+		</div>
+</div>
+<div class="col-md-4">
+	<%= render 'favorite' %>
+</div>
+	
 
 <%= content_for :handwrite_javascript do %>
 <script>

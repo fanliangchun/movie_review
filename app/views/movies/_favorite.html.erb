@@ -1,4 +1,4 @@
-<h2 class="text-center">特别推荐</h2>
+<h3 class="text-center">特别推荐</h3>
 <div id="pins">
 	<% Movie.limit(4).sort_by{|movie| -movie.members.count}.each do |movie| %>
 	<div class="box">
