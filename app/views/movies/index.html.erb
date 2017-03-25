@@ -9,7 +9,7 @@
 	<% end %>
 
 </div>
-
+<%= content_for :handwrite_javascript do %>
 <script>
 	$(function(){
     var $pins = $('#pins');
@@ -22,3 +22,4 @@
     });
   });	
 </script>
+<% end %>
