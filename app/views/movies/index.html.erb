@@ -1,17 +1,16 @@
 <div class="movies-show">
 <h1 class="text-center">热门电影</h1>
-<hr>
 <div id="pins" class="transitions-enabled">
 	<% @movies.each do |movie| %>
 		<div class="box">
 			<%= link_to movie_path(movie) do %>
 				<%= image_tag movie.avatar.url(:medium) %>
 				<%= link_to like_movie_path(movie), method: :put do %>
-			    <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+			    <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" style="color: #CB4437;"></i>
 			    <%= movie.get_upvotes.size %>
 				<% end %>
 				<%= link_to dislike_movie_path(movie), method: :put do %>
-			    <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
+			    <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" style="color: #CB4437;"></i>
 			    <%= movie.get_downvotes.size %>
 				<% end %>
 				<%= rating_for movie, 'color', disable_after_rate: true, cancel: true %>
