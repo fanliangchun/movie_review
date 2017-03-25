@@ -6,6 +6,14 @@
 			</div>
 			<div class="col-md-8">
 			<h1><%= @movie.title %></h1>
+			<div>
+		
+				<span style="display: inline-block;">综合评分:</span>
+				<span style="display: inline-block;"><%= rating_for @movie, 'color', disable_after_rate: true, imdb_avg: true %></span>
+				<span style="display: inline-block;"><%= rating_for @movie, 'taste', disable_after_rate: true, imdb_avg: true %></span>
+				<span style="display: inline-block;"><%= rating_for @movie, 'shape', disable_after_rate: true, imdb_avg: true %></span>
+			</div>
+			<br>
 			<h4><strong>Derector: </strong><%= @movie.director %></h4>
 			<p><strong>Running Time: </strong><%= @movie.movie_length %> </p>
 			<p><%= simple_format(@movie.description) %></p>
@@ -24,9 +32,9 @@
 
 <div class="col-md-8">
   <h3 class="reivews_title">
-    <%= @movie.reviews.count %> 条评论</h3><hr>
+    共 <%= @movie.reviews.count %> 条评论</h3><hr>
     <div id="reviews">
-	  	<%= render 'reviews/review' %>
+	  	<%= render @movie.reviews %>
 	  <hr>
 	  <% if current_user && current_user.has_favorited?(@movie) %>
 			<%= render "reviews/form" %>

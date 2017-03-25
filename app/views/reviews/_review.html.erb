@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 <div class="panel-body">
-<% @reviews.each do |review| %>
+
 	<p><%= review.comment %></p>
 			<% if current_user && current_user == @movie.user %>
 		   <%= link_to("Delete", movie_review_path(@movie, review), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-sm pull-right") %>
@@ -8,7 +8,7 @@
 	  <p><small>Submitted <strong><%= time_ago_in_words(review.created_at) %> ago</strong> 
 		<%= review.user %>
 	  </small></p>
-<% end %>
+
 </div>
 </div>
 

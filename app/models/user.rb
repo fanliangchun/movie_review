@@ -21,4 +21,6 @@ class User < ApplicationRecord
   def unfavorite!(movie)
   	favorited_movies.delete(movie)
   end
+
+  ratyrate_rater
 end
