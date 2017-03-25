@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   		post :unfavorite
   	end
   end
+
+  namespace :account do
+  	resources :favorites
+  end
 	root 'movies#index'
 end
