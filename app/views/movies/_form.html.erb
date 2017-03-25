@@ -11,5 +11,8 @@
 <div>
 	<%= f.input :movie_length %>
 </div>
+<div>
+	<%= f.input :avatar, as: :file %>
+</div>
 <%= f.submit "Submit", disable_with: "Submitting...", class: "btn btn-primary" %>
 <% end %>

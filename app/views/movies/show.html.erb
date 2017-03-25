@@ -1,4 +1,5 @@
 <div>
+	<%= image_tag @movie.avatar.url(:medium) %>
 	<h1><%= @movie.title %></h1>
 	<h3>by: <%= @movie.director %></h3>
 	<p><%= @movie.movie_length %> </p>

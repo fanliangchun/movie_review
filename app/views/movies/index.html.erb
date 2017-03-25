@@ -1,11 +1,24 @@
-<div class="pull-right">
-	<% if current_user %>
-		<%= link_to("Add a Movie", new_movie_path, class: "btn btn-danger") %>
-	<% end %>
-</div>
-<div>
+<div id="pins" class="transitions-enabled">
 	<% @movies.each do |movie| %>
-	<h2><%= link_to(movie.title, movie_path(movie)) %></h2>
-	<%= movie.director %>
+		<div class="box">
+			<%= link_to movie_path(movie) do %>
+				<%= image_tag movie.avatar.url(:medium) %>
+			<h4><%= movie.title%></h4>
+			<% end %>
+		</div>
 	<% end %>
+
 </div>
+
+<script>
+	$(function(){
+    var $pins = $('#pins');
+    $pins.imagesLoaded(function(){
+      // $box.fadeIn();
+      $pins.masonry({
+        itemSelector : '.box',
+        isFitWidth: true,
+      });
+    });
+  });	
+</script>
