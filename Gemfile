@@ -39,6 +39,7 @@ gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'paperclip', '~> 5.1'
 gem 'masonry-rails'
 gem 'ratyrate', '~> 1.2.2.alpha'
+gem 'social-share-button'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
