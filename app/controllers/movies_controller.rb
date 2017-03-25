@@ -38,6 +38,27 @@ class MoviesController < ApplicationController
 		redirect_to root_path, warning: "Moive Deleted!"
 	end
 
+	def favorite
+		@movie = Movie.find(params[:id])
+		if !current_user.has_favorited?(@movie)
+			current_user.favorite!(@movie)
+			flash[:notice] = "Favorited Successfully! "
+		else
+			flash[:alert] = "Already Favorited!"
+		end
+
+		redirect_to :back
+	end
+
+	def unfavorite
+		@movie = Movie.find(params[:id])
+		if current_user.has_favorited?(@movie)
+			current_user.unfavorite!(@movie)
+			flash[:warning] = "Unfavorited Successfully!"
+		end
+		redirect_to :back
+	end
+
 	private
 
 	def find_movie
