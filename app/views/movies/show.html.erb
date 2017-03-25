@@ -1,0 +1,11 @@
+<div>
+	<h1><%= @movie.title %></h1>
+	<h3>by: <%= @movie.director %></h3>
+	<p><%= @movie.movie_length %> </p>
+	<p><%= simple_format(@movie.description) %></p>
+</div>
+<%= link_to("Home", movies_path) %>
+<% if current_user && current_user == @movie.user %>
+<%= link_to("Edit", edit_movie_path(@movie)) %>
+<%= link_to("Destroy", movie_path(@movie), method: :delete, data: {confirm: "Are you sure?"}) %>
+<% end %>

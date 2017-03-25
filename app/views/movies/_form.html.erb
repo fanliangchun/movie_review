@@ -1,0 +1,15 @@
+<%= simple_form_for @movie do |f| %>
+<div class="group">
+	<%= f.input :title %>
+</div>
+<div>
+	<%= f.input :description %>
+</div>
+<div>
+	<%= f.input :director %>
+</div>
+<div>
+	<%= f.input :movie_length %>
+</div>
+<%= f.submit "Submit", disable_with: "Submitting...", class: "btn btn-primary" %>
+<% end %>

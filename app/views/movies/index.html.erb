@@ -1,0 +1,11 @@
+<div class="pull-right">
+	<% if current_user %>
+		<%= link_to("Add a Movie", new_movie_path, class: "btn btn-danger") %>
+	<% end %>
+</div>
+<div>
+	<% @movies.each do |movie| %>
+	<h2><%= link_to(movie.title, movie_path(movie)) %></h2>
+	<%= movie.director %>
+	<% end %>
+</div>
