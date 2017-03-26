@@ -2,9 +2,9 @@
 	<div class="ratyrate">
 		<p>
 		<%= @movie.title %> 评分：
-		<span style="display: inline-block;"><%= rating_for @movie, 'color', disable_after_rate: true, cancel: true %></span>
-		<span style="display: inline-block;"><%= rating_for @movie, 'taste', disable_after_rate: true, cancel: true %></span><br>
-		<span style="display: inline-block;"><%= rating_for @movie, 'shape', disable_after_rate: true, cancel: true %></span>
+		<span style="display: inline-block;"><%= rating_for @movie, 'color', disable_after_rate: true, cancel: true, star_path: '/ratyrate' %></span>
+		<span style="display: inline-block;"><%= rating_for @movie, 'taste', disable_after_rate: true, cancel: true, star_path: '/ratyrate' %></span><br>
+		<span style="display: inline-block;"><%= rating_for @movie, 'shape', disable_after_rate: true, cancel: true, star_path: '/ratyrate' %></span>
 		</p>
 	</div>
   <div class="field">
