@@ -6,24 +6,76 @@
 
 body {
   background-color: #F1F1F1;
+  height: 100%;
 }
 
-footer {
-  background-color: #FFFFFF;
-  width: 100%;
-  text-align: center;
+
+html, body {
+  height: 100%;
 }
 
-footer > p {
-  padding-top: 10px;
+#wrap {
+  min-height: 100%;
 }
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -350px; /* negative value of footer height */
+  height: 100px;
+  clear:both;
+  padding-top:30px;
+  padding-bottom: -50px;
+  background-color: #ffffff;
+} 
+
 
 .fa {
   color: #CB4437;
 }
+
+
+.bg {
+  background: url('http://7xjhux.com1.z0.glb.clouddn.com/2017-03-26-scott-webb.jpg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 500px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  height: 500px;
+  background:transparent;
+}
+
+.title {
+  background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
+  max-width: 500px;
+  margin-bottom: 0;//这样就可以紧接息面的描述文字
+  border-top-right-radius: 3px;//右上角圆边
+  border-top-left-radius: 3px;//左上角圆边
+}
+
+.jumbotron h1, .jumbotron .h1 {
+    text-align: left;//文字左对齐
+    color: #CB4437;  //字体颜色
+    padding: 50px 20px 50px;//上50px，左右20px，下0
+    text-shadow: #212121 0.2em 0.2em 0.2em;
+}
+
+
+
 .movies-show {
   background-color: #FFFFFF;
   padding-top: 0px;
+  margin-bottom: -100px;
 }
 
 .movies-show h1 {
@@ -41,6 +93,12 @@ footer > p {
   font-size: 5em;
 }
 
+.img-favorites {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 .movie-title h3 {
   padding-bottom: 5px;
 }

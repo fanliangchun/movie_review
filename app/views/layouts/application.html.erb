@@ -12,13 +12,15 @@
       <div class="row">
   		  <%= render 'common/navbar' %>
       </div>
-  		<%= render 'common/flashes' %>
-  		<%= yield %>
+      <div id="wrap">
+        <div id="main" class="clear-top">
+    		<%= render 'common/flashes' %>
+    		<%= yield %>
+        </div>
+      </div>
   	</div>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <%= yield :handwrite_javascript  %>
   </body>
-    <div class="row">
   	<%= render 'common/footer' %>
-    </div>
 </html>
