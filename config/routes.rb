@@ -1,3 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post '/rate' => 'rater#create', :as => 'rate'
+  devise_for :users
+  resources :movies do
+  	member do
+  		post :favorite
+  		post :unfavorite
+      put "like", to: "movies#upvote"
+      put "dislike", to: "movies#downvote"
+  	end
+    resources :reviews
+  end
+
+  namespace :account do
+  	resources :favorites
+    resources :reviews
+  end
+	root 'movies#index'
 end

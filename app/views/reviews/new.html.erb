@@ -1,0 +1,6 @@
+<h1>发表影评</h1>
+<hr>
+<%= simple_form_for([@movie,@review]) do |f|  %>
+<%= f.input :comment, label: "我的评论" %>
+<%= f.submit "发表影评", disable_with: "Submitting...", class: "btn btn-primary" %>
+<% end %>

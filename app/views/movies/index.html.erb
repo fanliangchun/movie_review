@@ -1,0 +1,64 @@
+<div class="bg"></div>
+<div class="jumbotron">
+  <h1 class="display-3 title">晒出心动影片，分享美好生活！</h1>
+  
+  <hr class="my-4">
+  <h6 class="lead">
+    <a class="btn btn-default btn-lg" href="/movies/new" role="button"><i class="fa fa-film fa-2x" aria-hidden="true"> 立即上新影片</i></a>
+  </h6>
+</div>
+<div class="movies-show">
+<h1 class="text-center">热门电影</h1>
+<div id="pins" class="transitions-enabled">
+	<% @movies.each do |movie| %>
+		<div class="box">
+			<%= link_to movie_path(movie) do %>
+				<%= image_tag movie.avatar.url(:medium) %>
+
+				<% if current_user && current_user.has_favorited?(movie) %>
+					<%= link_to unfavorite_movie_path(movie), method: :post do %><i class="fa fa-heart fa-2x"></i><% end %>
+				<% else %>
+					<%= link_to favorite_movie_path(movie), method: :post do %><i class="fa fa-heart-o fa-2x"></i><% end %>
+				<% end %>
+	
+				<%= link_to like_movie_path(movie), method: :put do %>
+			    <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" style="color: #CB4437;"></i>
+			    <%= movie.get_upvotes.size %>
+				<% end %>
+				<%= link_to dislike_movie_path(movie), method: :put do %>
+			    <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" style="color: #CB4437;"></i>
+			    <%= movie.get_downvotes.size %>
+				<% end %>
+				<%= rating_for movie, 'color', disable_after_rate: true, cancel: true, star_path: '/ratyrate' %>
+			<% end %>
+
+		</div>
+	<% end %>
+</div>
+</div>
+<%= content_for :handwrite_javascript do %>
+<script>
+	$(function(){
+    var $pins = $('#pins');
+    $pins.imagesLoaded(function(){
+      // $box.fadeIn();
+      $pins.masonry({
+        itemSelector : '.box',
+        isFitWidth: true,
+      });
+    });
+  });	
+</script>
+
+<script>
+	var jumboHeight = $('.jumbotron').outerHeight();
+function parallax(){
+    var scrolled = $(window).scrollTop();
+    $('.bg').css('height', (jumboHeight-scrolled) + 'px');
+}
+
+$(window).scroll(function(e){
+    parallax();
+});
+</script>
+<% end %>

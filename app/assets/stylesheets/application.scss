@@ -1,0 +1,179 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "masonry/transitions";
+@import "social-share-button";
+
+body {
+  background-color: #F1F1F1;
+  height: 100%;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -350px; /* negative value of footer height */
+  height: 100px;
+  clear:both;
+  padding-top:30px;
+  padding-bottom: -50px;
+  background-color: #ffffff;
+} 
+
+
+.fa {
+  color: #CB4437;
+}
+
+
+.bg {
+  background: url('http://7xjhux.com1.z0.glb.clouddn.com/2017-03-26-scott-webb.jpg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 500px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  height: 500px;
+  background:transparent;
+}
+
+.title {
+  background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
+  max-width: 500px;
+  margin-bottom: 0;//这样就可以紧接息面的描述文字
+  border-top-right-radius: 3px;//右上角圆边
+  border-top-left-radius: 3px;//左上角圆边
+}
+
+.jumbotron h1, .jumbotron .h1 {
+    text-align: left;//文字左对齐
+    color: #CB4437;  //字体颜色
+    padding: 50px 20px 50px;//上50px，左右20px，下0
+    text-shadow: #212121 0.2em 0.2em 0.2em;
+}
+
+
+
+.movies-show {
+  background-color: #FFFFFF;
+  padding-top: 0px;
+  margin-bottom: -100px;
+}
+
+.movies-show h1 {
+  padding-top: 20px;
+}
+
+.movie-title {
+  background-color: #ffffff;
+  text-align: center;
+  color: #212121;
+}
+
+.movie-title h1 {
+  padding: 10px;
+  font-size: 5em;
+}
+
+.img-favorites {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.movie-title h3 {
+  padding-bottom: 5px;
+}
+.navbar-default {
+    background-color: #FFFFFF;//背景颜色
+    border-color: #FFFFFF;//边框色
+    margin-bottom: 0;//底部 margin 不撑开距离
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0;//圆角为0
+    }
+}
+
+.navbar-default .navbar-brand {
+   color: #3A3A3A;//字体颜色
+   padding: 10px 15px;//上下10px,左右15px
+   line-height: 30px;//文字行高
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #CB4437;//鼠标放置在链接上的文字颜色
+  background-color: transparent;//鼠标放置在链接上的背景颜色，这里设为透明
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: #3A3A3A;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #CB4437;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #3A3A3A;
+  background-color: #CB4437;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+    background-color: #CB4437;
+    color: #212121;
+}
+ #pins {
+   margin: 0 auto;
+   width: 100%;
+   .box {
+ 	  margin: 10px;
+ 	  width: 225px;
+ 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+ 	  text-align: center;
+    padding: 0px;
+ 	  img {
+ 	  	max-width: 100%;
+ 	  	height: auto;
+ 	  }
+ 	}
+ }
+
+ .img-1 {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    -webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.75);
+    margin-bottom:20px;
+}
+
+.img-1:hover {
+  filter: none; /* IE6-9 */
+  -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+}

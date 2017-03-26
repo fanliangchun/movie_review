@@ -1,0 +1,68 @@
+	<div class="movie-title">
+	<h1><%= @movie.title %></h1>
+	</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-4">
+			<%= image_tag @movie.avatar.url(:medium) %>
+			</div>
+			<div class="col-md-8">
+			<h1><%= @movie.title %></h1>
+			<div>
+		
+				<span style="display: inline-block;">综合评分:</span>
+				<span style="display: inline-block;"><%= rating_for @movie, 'color', disable_after_rate: true, imdb_avg: true, star_path: '/ratyrate' %></span>
+				<span style="display: inline-block;"><%= rating_for @movie, 'taste', disable_after_rate: true, imdb_avg: true, star_path: '/ratyrate' %></span>
+				<span style="display: inline-block;"><%= rating_for @movie, 'shape', disable_after_rate: true, imdb_avg: true, star_path: '/ratyrate' %></span>
+			</div>
+			<br>
+
+			<h4><strong>Derector: </strong><%= @movie.director %></h4>
+			<p><strong>Running Time: </strong><%= @movie.movie_length %> </p>
+			<p><%= simple_format(@movie.description) %></p>
+						<h4 style="display: inline-block;">分享：</h4>
+				<span style="display: inline-block;"><%= social_share_button_tag(@movie.title) %></span>
+		</div>
+			<div>
+			<% if current_user && current_user.has_favorited?(@movie) %>
+				<%= link_to(content_tag(:i, "取消收藏", class: "fa fa-heart"), unfavorite_movie_path(@movie), method: :post, class: "btn btn-default") %>
+			<% else %>
+				<%= link_to(content_tag(:i, "立即收藏", class: "fa fa-heart-o"), favorite_movie_path(@movie), method: :post, class: "btn btn-default") %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-md-8">
+  <h3 class="reivews_title">
+    共 <%= @movie.reviews.count %> 条评论</h3><hr>
+    <div id="reviews">
+	  	<%= render @movie.reviews %>
+	  <hr>
+	  <% if current_user && current_user.has_favorited?(@movie) %>
+			<%= render "reviews/form" %>
+		<% end %>
+		</div>
+</div>
+<div class="col-md-4">
+	<%= render 'favorite' %>
+</div>
+	
+
+<%= content_for :handwrite_javascript do %>
+<script>
+	$(function(){
+    var $pins = $('#pins');
+    $pins.imagesLoaded(function(){
+      // $box.fadeIn();
+      $pins.masonry({
+        itemSelector : '.box',
+        isFitWidth: true,
+      });
+    });
+  });	
+</script>
+<% end %>

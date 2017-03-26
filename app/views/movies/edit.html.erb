@@ -1,0 +1,24 @@
+<div class="col-md-8 col-md-offset-2">
+<h2 class="text-center">Edit Movie</h2>
+<hr>
+<%= simple_form_for @movie do |f| %>
+<div class="group">
+	<%= f.input :title %>
+</div>
+<div>
+	<%= f.input :description %>
+</div>
+<div>
+	<%= f.input :director %>
+</div>
+<div>
+	<%= f.input :movie_length %>
+</div>
+<div>
+	<span>图片展示</span><br>
+		<%= image_tag @movie.avatar.url(:thumb) %><br>
+	 <%= f.input :avatar, as: :file %>
+</div>
+<%= f.submit "Submit", disable_with: "Submitting...", class: "btn btn-primary" %>
+<% end %>
+</div>
